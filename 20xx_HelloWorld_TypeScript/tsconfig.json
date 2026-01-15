@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ES2016",
+        "lib": [ "DOM", "ES2016" ],
+
+        "module": "ESNext",
+        "moduleResolution": "node",
+
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+
+        "strict": false,
+        "noImplicitAny": false,
+        "strictNullChecks": false,
+        "strictPropertyInitialization": false,
+        "noUncheckedIndexedAccess": false
+    },
+
+    "include": [
+        "typescript/**/*.ts",
+        "../N-of-1-Experimentation/**/*.ts"
+    ]
+}
