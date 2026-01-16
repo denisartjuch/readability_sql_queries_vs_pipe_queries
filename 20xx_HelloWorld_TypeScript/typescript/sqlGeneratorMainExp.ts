@@ -93,11 +93,7 @@ class Query {
 const AGG_FUNCTIONS = ["SUM", "COUNT", "AVG", "MIN", "MAX"] as const;
 const base_columns = 8 as number;
 
-const ALLOWED_NOUN_LENGTHS = new Set([5, 6]);
 
-function isAllowedNoun(w: string): boolean {
-    return ALLOWED_NOUN_LENGTHS.has(w.length) && /^[A-Za-z_]+$/.test(w);
-}
 
 function pullFilteredNouns(n: number, forbidden: Set<string> = new Set()): string[] {
     const nouns = new Nouns();
@@ -107,7 +103,7 @@ function pullFilteredNouns(n: number, forbidden: Set<string> = new Set()): strin
         const [candidate] = nouns.pull_n_random_words(1);
         if (!candidate) continue;
 
-        if (isAllowedNoun(candidate) && !forbidden.has(candidate)) {
+        if (!forbidden.has(candidate)) {
             out.push(candidate);
             forbidden.add(candidate);
         }

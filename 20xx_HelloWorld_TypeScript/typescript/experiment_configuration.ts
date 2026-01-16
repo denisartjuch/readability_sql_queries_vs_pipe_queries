@@ -125,18 +125,16 @@ let experiment_configuration_function = (writer: Experiment_Output_Writer) => {
 FROM base
 
 -- Project fields (this defines the new "shape" of the table)
--- Visible columns after this step: customer_id, order_id, order_total, sum_order_ts
+-- Visible columns after this step: customer_id, order_id, order_total
 |&gt; SELECT
   customer_id,
   order_id,
   order_total,
-  SUM(order_ts) AS sum_order_ts
 
 -- Re-project to keep only what you need
--- Visible columns after this step: customer_id, sum_order_ts, order_total
+-- Visible columns after this step: customer_id, order_total
 |&gt; SELECT
   customer_id,
-  sum_order_ts,
   order_total;</code></pre>
 
 <h3>Pipe example 2: <span class="sourcecode">GROUP BY</span> + <span class="sourcecode">|&gt; AGGREGATE</span></h3>
@@ -158,7 +156,8 @@ FROM base
 |&gt; AGGREGATE
   SUM(order_total) AS revenue,
   AVG(order_total) AS avg_order_value
-GROUP BY customer_id, order_date
+    GROUP BY 
+    customer_id, order_date
 
 -- Final projection, keeps the result tidy
 -- Visible columns after this step: customer_id, order_date, revenue, avg_order_value
@@ -196,7 +195,7 @@ GROUP BY customer_id, order_date
 4     | Diego | Berlin  | 42
 5     | Emma  | Hamburg | 22</code></pre>
 
-<h3>Pipe query: people per city (count + avg age), sorted</h3>
+<h3>Pipe query: people per city (count + avg age)</h3>
 
 <pre class="sourcecode"><code>-- Start: read the base table
 -- Visible columns: all columns from people
@@ -204,16 +203,13 @@ FROM people
 
 -- Aggregate into one row per city
 -- Visible columns after this step: city, residents, avg_age
-|&gt; SELECT
-  city,
+|&gt; AGGREGATE
   COUNT(*) AS residents,
   AVG(age) AS avg_age
-|&gt; GROUP BY city
+    GROUP BY 
+        city
 
--- Sort by residents (most first), then by avg age (oldest first)
 -- Visible columns after this step: city, residents, avg_age
-|&gt; ORDER BY residents DESC, avg_age DESC;</code></pre>
-
 <h3>Expected result</h3>
 <pre class="sourcecode"><code>-- city    | residents | avg_age
 Berlin     | 3         | 29.0
@@ -356,7 +352,6 @@ SELECT
   residents,
   avg_age
 FROM step_1
-ORDER BY residents DESC, avg_age DESC;</code></pre>
 
 <h3>Expected result</h3>
 <pre class="sourcecode"><code>-- city    | residents | avg_age
@@ -386,7 +381,6 @@ Hamburg    | 1         | 22.0</code></pre>
    GROUP BY
      customer_id
 |&gt; WHERE ytd_amount &gt;= 1000
-|&gt; ORDER BY ytd_amount DESC;</code></pre>
   </div>
 
   <div style="flex:1 1 50%; min-width:0;">
@@ -415,7 +409,6 @@ step_2 AS (
 SELECT *
 FROM step_2
 WHERE ytd_amount &gt;= 1000
-ORDER BY ytd_amount DESC;</code></pre>
   </div>
 </div>
 
@@ -759,9 +752,7 @@ FROM CTE_1;</code></pre>`);
                 writer.clear_error?.();
 
                 const correctAnswer = current_queryKind === "pipe" ? task.errorLinePipe : task.errorLineSQL;
-                const attribuetsUntilError =
-                    current_queryKind === "pipe" ? task.totalInformationUntilErrorPipe : task.totalInformationUntilErrorSQL;
-
+         
                 const correctAnswerText = correctAnswer === null ? "There was no Error" : String(correctAnswer);
 
                 const wrongAttribute = task.unknownName === null ? "There was no Error" : task.unknownName;
