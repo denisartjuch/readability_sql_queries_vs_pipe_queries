@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/readability_sql_queries_vs_pipe_queries/FileContentIndex
+/.vs/readability_sql_queries_vs_pipe_queries/CopilotIndices/17.14.1231.31060/CodeChunks.db-wal
+/.vs/readability_sql_queries_vs_pipe_queries/CopilotIndices/17.14.1231.31060/CodeChunks.db
+/.vs/readability_sql_queries_vs_pipe_queries/CopilotIndices/17.14.1231.31060/CodeChunks.db-shm
+/.vs/readability_sql_queries_vs_pipe_queries/CopilotIndices/17.14.1231.31060/SemanticSymbols.db-shm
+/.vs/readability_sql_queries_vs_pipe_queries/CopilotIndices/17.14.1231.31060/SemanticSymbols.db-wal
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
