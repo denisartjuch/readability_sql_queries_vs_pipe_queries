@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "build": "webpack --config webpack.config.cjs"
+        "build": "webpack --config webpack.config.cjs",
+        "deploy": "npm run build && cd .. && git subtree push --prefix 20xx_HelloWorld_TypeScript/dist origin gh-pages"
+
     },
     "devDependencies": {
         "copy-webpack-plugin": "^12.0.2",

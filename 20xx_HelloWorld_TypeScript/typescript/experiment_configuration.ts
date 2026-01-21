@@ -1,14 +1,14 @@
 ﻿// experiment_configuration MAIN EXPERIMENT
 
-import { BROWSER_EXPERIMENT } from "../../N-of-1-Experimentation/modules/Experimentation/Browser_Output_Writer.js";
+import { BROWSER_EXPERIMENT } from "../N-of-1-Experimentation/modules/Experimentation/Browser_Output_Writer";
 import {
     Experiment_Output_Writer,
     Time_to_finish,
     text_input_experiment,
     SET_SEED,
     alternatives,
-} from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
-import { Task } from "../../N-of-1-Experimentation/modules/Experimentation/Task.js";
+} from "../N-of-1-Experimentation/modules/Experimentation/Experimentation";
+import { Task } from "../N-of-1-Experimentation/modules/Experimentation/Task";
 
 import { formatted, Row } from "../queries100RepsMainExperiment.js";
 import { random_array_element } from "../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
@@ -726,7 +726,7 @@ FROM step_1;</code></pre>`);
                 "<p>By sending that mail, you agree that " +
                 "your (anonymized) data will be used for scientific analyses where your data (together with others in an " +
                 "anonymized way) will be published.<br><br>I.e., you agree with the information sheet, see " +
-                "<a href='https://github.com/shanenbe/Experiments/blob/main/2024_TypeSystems_ConstructorCall_Flat/Agreement.pdf' target='_blank'>here</a>. " +
+                "<a href='https://github.com/denisartjuch/readability_sql_queries_vs_pipe_queries/blob/main/Agreement.pdf' target='_blank'>here</a>. " +
                 "Note, that it it no longer necessary to send a signed version of the agreement to the experimenter.<br><br>" +
                 "After sending your email, you can close this window.</p>" +
                 "<p>Many thanks for your participation.<br>" +
