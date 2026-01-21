@@ -1,8 +1,8 @@
 import {
     integer_partitions_of_fix_length,
     integer_partitions_of_fix_length_with_constraint,
-} from "../../N-of-1-Experimentation/modules/numeric/integer_partition.js";
-import { Nouns } from "../../N-of-1-Experimentation/modules/Words/Nouns.js";
+} from "../N-of-1-Experimentation/modules/numeric/integer_partition";
+import { Nouns } from "../N-of-1-Experimentation/modules/Words/Nouns";
 
 type Triplet = [number, number, number]; 
 

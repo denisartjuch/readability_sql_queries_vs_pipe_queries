@@ -1,6 +1,6 @@
 var _a, _b, _c, _d, _e, _f;
 import * as fs from "node:fs";
-import { SET_SEED } from "../../N-of-1-Experimentation/modules/Experimentation/Experimentation.js";
+import { SET_SEED } from "../N-of-1-Experimentation/modules/Experimentation/Experimentation";
 let SEED = "42";
 SET_SEED(SEED);
 class Aggregate {
