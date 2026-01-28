@@ -737,6 +737,7 @@ FROM step_1;</code></pre>`);
         layout: [
             { variable: "queryKind", treatments: ["sql", "pipe"] },
             //{ variable: "errorType", treatments: ["SELECT_UNKNOWN", "AGG_UNKNOWN", "GROUP_UNKNOWN"] },
+
             { variable: "totalInformationDifference", treatments: ["0", "4", "8"] },
         ],
 
